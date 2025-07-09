@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>82 Lottery WinGo Hack</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1b1b2f, #162447);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      background: rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    h2 {
+      margin: 0;
+      font-size: 1.6em;
+      color: #00f5d4;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      background: #2e2e3e;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #checkBtn { background: #4caf50; }
+    #clearBtn { background: #f44336; }
+    .telegram, .register {
+      display: inline-block;
+      margin: 10px 5px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      background: #00acee;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .register {
+      background: #ff9800;
+    }
+    #live-time {
+      margin: 10px 0;
+      font-size: 1em;
+    }
+    #prediction, #number-tip {
+      margin: 15px 0;
+      font-size: 1.2em;
+    }
+    .tag-box {
+      display: inline-block;
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .big {
+      background-color: #28a745;
+      color: #fff;
+    }
+    .small {
+      background-color: #e91e63;
+      color: #fff;
+    }
+    .number-box {
+      background-color: #2196f3;
+      color: white;
+    }
+    #history {
+      text-align: left;
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+    footer {
+      margin-top: 20px;
+      font-size: 0.8em;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>82 Lottery WinGo Hack</h2>
+    <input type="text" id="period" placeholder="Enter last 5-digit result" maxlength="5" />
+    <button id="checkBtn" onclick="predict()">Check Result</button>
+    <button id="clearBtn" onclick="clearHistory()">Clear</button>
+    <div id="live-time"></div>
+    <div id="prediction"></div>
+    <div id="number-tip"></div>
+    <div id="history">Prediction History:<br></div>
+    <a href="https://t.me/minesprovipsingl" class="telegram" target="_blank">Join Telegram</a>
+    <a href="https://www.82lottery7.in/#/register?invitationCode=238352107279" class="register" target="_blank">Register Now</a>
+  </div>
+  <footer>
+    WinGo Hack provided by Ganesh | Telegram: @minesprovipsingle
+  </footer>
+
+  <script>
+    let lastResults = [];
+
+    function updateTime() {
+      const now = new Date();
+      document.getElementById("live-time").innerText =
+        "Live Time: " + now.toLocaleTimeString("en-US");
+    }
+    setInterval(updateTime, 1000);
+    updateTime();
+
+    function predict() {
+      const period = document.getElementById("period").value;
+      if (period && !isNaN(period) && period.length === 5) {
+        const sum = parseInt(period.split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
+        const currentPrediction = sum > 13.5 ? "Big" : "Small";
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString("en-US");
+        const result = ${period} - ${currentPrediction} - ${timeStr};
+        
+        // Add to history
+        lastResults.push(period);
+        if (lastResults.length > 10) lastResults.shift();
+
+        // Number suggestion
+        const luckyNumber = (sum % 10) + 1;
+
+        document.getElementById("prediction").innerHTML = 
+          <div class="tag-box ${currentPrediction.toLowerCase()}">Prediction: ${currentPrediction}</div>
+        ; document.getElementById("number-tip").innerHTML = 
+          <div class="tag-box number-box">Suggested Number: ${luckyNumber}</div>
+        ;
+addToHistory(result);
+        document.getElementById("period").value = "";
+      } else {
+        alert("Please enter a valid 3-digit number!");
+      }
+    }
+
+    function addToHistory(result) {
+      const historyDiv = document.getElementById("history");
+      const p = document.createElement("p");
+      p.innerText = result;
+      historyDiv.appendChild(p);
+    }
+
+    function clearHistory() {
+      document.getElementById("history").innerHTML = "Prediction History:<br>";
+      lastResults = [];
+    }
+  </script>
+</body>
+</html>
