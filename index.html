@@ -100,7 +100,7 @@
 <body>
   <div class="container">
     <h2>82 Lottery WinGo Hack</h2>
-    <input type="text" id="period" placeholder="Enter last 5-digit result" maxlength="5" />
+    <input type="text" id="period" placeholder="Enter last 3-digit result" maxlength="3" />
     <button id="checkBtn" onclick="predict()">Check Result</button>
     <button id="clearBtn" onclick="clearHistory()">Clear</button>
     <div id="live-time"></div>
@@ -127,12 +127,12 @@
 
     function predict() {
       const period = document.getElementById("period").value;
-      if (period && !isNaN(period) && period.length === 5) {
+      if (period && !isNaN(period) && period.length === 3) {
         const sum = parseInt(period.split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
         const currentPrediction = sum > 13.5 ? "Big" : "Small";
         const now = new Date();
         const timeStr = now.toLocaleTimeString("en-US");
-        const result = ${period} - ${currentPrediction} - ${timeStr};
+        const result = `${period} - ${currentPrediction} - ${timeStr}`;
         
         // Add to history
         lastResults.push(period);
@@ -141,12 +141,15 @@
         // Number suggestion
         const luckyNumber = (sum % 10) + 1;
 
-        document.getElementById("prediction").innerHTML = 
+        document.getElementById("prediction").innerHTML = `
           <div class="tag-box ${currentPrediction.toLowerCase()}">Prediction: ${currentPrediction}</div>
-        ; document.getElementById("number-tip").innerHTML = 
+        `;
+
+        document.getElementById("number-tip").innerHTML = `
           <div class="tag-box number-box">Suggested Number: ${luckyNumber}</div>
-        ;
-addToHistory(result);
+        `;
+
+        addToHistory(result);
         document.getElementById("period").value = "";
       } else {
         alert("Please enter a valid 3-digit number!");
